@@ -1,0 +1,94 @@
+/* Google CSS Styles 
+font-family: 'PT Sans', sans-serif;
+font-family: 'Dosis', sans-serif;
+font-family: 'Karla', sans-serif;
+font-family: 'Bree Serif', serif;
+font-family: 'Lobster', cursive;
+*/
+
+body {
+    background-image: url("../img/backgroundImage_index.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+h1 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 250%;
+    font-weight: bolder;
+    padding: 10px;
+    text-align: center;
+    text-shadow: rgb(189, 111, 39);
+    color: white;
+}
+
+ul {
+    margin: 30px;
+    font-family: 'Karla', sans-serif;
+    font-size: 100%;
+    padding: 20px;
+    list-style: circle;
+    grid-row-gap: 10px;
+    background-color: rgb(10, 3, 3);
+    opacity: 0.5;
+}
+
+p {
+    font-family: 'Karla', sans-serif;
+    font-size: 100%;
+    opacity: 1.0;
+    padding: 30px;
+    color: white;
+}
+
+li {
+    margin: 8px;
+    color: white;
+}
+
+div.location {
+    outline: green;
+    float: left;
+    margin: 20px;
+}
+
+h2 {
+    margin: 5px;
+    font-family: 'Karla', sans-serif;
+    font-size: 180%;
+    clear: both;
+    font-weight: bold;
+    color: white;
+}
+
+#locationtable {
+    margin: 30px;
+    font-family: 'Karla', sans-serif;
+    border-collapse: collapse;
+    clear: both;
+    color: white;
+  }
+  
+#locationtable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+  
+#locationtable tr:nth-child(even){
+    background-color: black;
+    opacity: 0.5;
+}
+
+#locationtable tr:nth-child(odd){
+    background-color: black;
+    opacity: 0.5;
+}
+
+#locationtable tr:first-child{
+    background-color:white;
+    color: black;
+}
+
+#locationtable tr:hover {
+    background-color: white;
+    color: black
+ }
