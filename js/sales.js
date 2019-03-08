@@ -42,13 +42,13 @@ var pikePlaceLocation = {
     render: function () {
         var pikePlaceLocation = document.getElementById('pikePlace');
         this.generateCookiesHourly();
-        for (var i = 0; i <= this.cookiesHourlyArray.length; i++) {
+        for (var i = 0; i < this.cookiesHourlyArray.length; i++) {
             var listElement = document.createElement('li');
             listElement.textContent = workingHours[i] + this.cookiesHourlyArray[i] + ' cookies';
             pikePlaceLocation.appendChild(listElement);
         }
         var listElementTotal = document.createElement('li');
-        listElement.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
+        listElementTotal.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
         pikePlaceLocation.appendChild(listElementTotal);
     }
 };
@@ -87,13 +87,13 @@ var seatacAirportLocation = {
     render: function () {
         var seatacAirportLocation = document.getElementById('seatacAirport');
         this.generateCookiesHourly();
-        for (var i = 0; i <= this.cookiesHourlyArray.length; i++) {
+        for (var i = 0; i < this.cookiesHourlyArray.length; i++) {
             var listElement = document.createElement('li');
             listElement.textContent = workingHours[i] + this.cookiesHourlyArray[i] + ' cookies';
             seatacAirportLocation.appendChild(listElement);
         }
         var listElementTotal = document.createElement('li');
-        listElement.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
+        listElementTotal.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
         seatacAirportLocation.appendChild(listElementTotal);
     }
 };
@@ -132,13 +132,13 @@ var seattleCenterLocation = {
     render: function () {
         var seattleCenterLocation = document.getElementById('seattleCenter');
         this.generateCookiesHourly();
-        for (var i = 0; i <= this.cookiesHourlyArray.length; i++) {
+        for (var i = 0; i < this.cookiesHourlyArray.length; i++) {
             var listElement = document.createElement('li');
             listElement.textContent = workingHours[i] + this.cookiesHourlyArray[i] + ' cookies';
             seattleCenterLocation.appendChild(listElement);
         }
         var listElementTotal = document.createElement('li');
-        listElement.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
+        listElementTotal.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
         seattleCenterLocation.appendChild(listElementTotal);
     }
 };
@@ -177,13 +177,13 @@ var capitolHillLocation = {
     render: function () {
         var capitolHillLocation = document.getElementById('capitolHill');
         this.generateCookiesHourly();
-        for (var i = 0; i <= this.cookiesHourlyArray.length; i++) {
+        for (var i = 0; i < this.cookiesHourlyArray.length; i++) {
             var listElement = document.createElement('li');
             listElement.textContent = workingHours[i] + this.cookiesHourlyArray[i] + ' cookies';
             capitolHillLocation.appendChild(listElement);
         }
         var listElementTotal = document.createElement('li');
-        listElement.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
+        listElementTotal.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
         capitolHillLocation.appendChild(listElementTotal);
     }
 };
@@ -222,13 +222,13 @@ var alkiLocation = {
     render: function () {
         var alkiLocation = document.getElementById('alki');
         this.generateCookiesHourly();
-        for (var i = 0; i <= this.cookiesHourlyArray.length; i++) {
+        for (var i = 0; i < this.cookiesHourlyArray.length; i++) {
             var listElement = document.createElement('li');
             listElement.textContent = workingHours[i] + this.cookiesHourlyArray[i] + ' cookies';
             alkiLocation.appendChild(listElement);
         }
         var listElementTotal = document.createElement('li');
-        listElement.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
+        listElementTotal.textContent = 'Total: ' + this.totalCookiesLocation + ' cookies';
         alkiLocation.appendChild(listElementTotal);
     }
 };
