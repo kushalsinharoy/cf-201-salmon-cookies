@@ -92,3 +92,49 @@ h2 {
     background-color: white;
     color: black
  }
+
+#salmonCookieSalesTable {
+    margin: 40px;
+    font-family: 'Karla', sans-serif;
+    border-collapse: collapse;
+    clear: both;
+    color: white;
+    padding: 10px;
+  }
+  
+#salmonCookieSalesTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#salmonCookieSalesTable tr {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#salmonCookieSalesTable th{
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+  
+#salmonCookieSalesTable tr:nth-child(even){
+    background-color: black;
+    opacity: 0.5;
+}
+
+#salmonCookieSalesTable tr:nth-child(odd){
+    background-color: black;
+    opacity: 0.5;
+    padding: 10px;
+}
+
+#salmonCookieSalesTable tr:first-child{
+    background-color:white;
+    color: black;
+    padding: 10px;
+}
+
+#salmonCookieSalesTable tr:hover {
+    background-color: white;
+    color: black
+ }
