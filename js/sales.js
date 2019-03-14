@@ -142,7 +142,7 @@ var calculateHourlySalesTotal = function () {
         columnValue.innerText = hourlyTotalSalesPerLocation;
         footerColumnTotalValue.appendChild(columnValue);
         salmonCookieTotalCount += hourlyTotalSalesPerLocation;
-
+      
         console.log(salmonCookieTotalCount);
     }
 };
