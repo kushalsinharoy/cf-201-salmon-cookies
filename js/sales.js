@@ -168,7 +168,6 @@ function validateDuplicateLocation(salmonCookieStoreLocations) {
 function validateSpecialCharacters(salmonCookieStoreLocations) {
     var pattern = new RegExp(/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
     var locationArrayLength = salmonCookieStoreLocations.length - 1;
-    alert(salmonCookieStoreLocations[locationArrayLength].location);
     try {
         if (pattern.test(salmonCookieStoreLocations[locationArrayLength].location)) {
             errorStatus = "Y";
