@@ -11,6 +11,11 @@ var workingHours = ['6:00 AM', '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '11:
 // define store variables
 var salmonCookieStoreLocations = []; // define an array for all the locations.
 var salmonCookieTotalCount = 0; // Total Cookies per location for each Hour.
+var locationDetailsTable = document.getElementById('location_details_table');
+
+/* Create the intake form for the location details */
+var locationDetailsInputForm = document.getElementById('location_details_input_form');
+var errorStatus = "N";
 
 /**
  * Constructor function for instantiating location objects.
@@ -28,11 +33,14 @@ function SalmonCookieLocationDetails(location, minimumCustomers, maximumCustomer
     this.cookiesHourlyArray = [];
     this.totalCookiesLocation = 0;
 
+    console.log("Inside Constructor Function" + location + minimumCustomers + maximumCustomers + averageCookiesPerCustomer);
+
     // Generate a random customers hourly
     this.generateRandomCustomersHourly = function (minimumCustomers, maximumCustomers) {
         for (var i = 0; i < workingHours.length; i++) {
             var randomCustomer = Math.floor(Math.random() * (maximumCustomers - minimumCustomers)) + minimumCustomers;
             this.averageCustomerHourlyArray.push(randomCustomer);
+            console.log(randomCustomer);
         }
     };
 
@@ -50,11 +58,12 @@ function SalmonCookieLocationDetails(location, minimumCustomers, maximumCustomer
 
     //Push the location objects
     salmonCookieStoreLocations.push(this);
+    console.log("Length : " + salmonCookieStoreLocations.length);
 
     // Create render function
     this.render = function () {
         this.generateCookiesHourly();
-        var createTableForEachLocation = document.getElementById('table');
+        var createTableForEachLocation = document.getElementById('salestable');
 
         //Start - Create row element
         var newRowValue = document.createElement('tr');
@@ -83,12 +92,93 @@ function SalmonCookieLocationDetails(location, minimumCustomers, maximumCustomer
     };
 }; // End Create of Constructor Function
 
-//Instantiate the Location objects.
-var pikePlaceStore = new SalmonCookieLocationDetails('1st and Pike', 23, 65, 6.3);
-var seatacAirportStore = new SalmonCookieLocationDetails('Seatac Airport', 3, 24, 1.2);
-var seattleCenterStore = new SalmonCookieLocationDetails('Seattle Center', 11, 38, 3.7);
-var capitolHillStore = new SalmonCookieLocationDetails('Capitol Hill', 20, 38, 2.3);
-var alkiStore = new SalmonCookieLocationDetails('Alki', 2, 16, 4.6);
+/**
+ * Instantiate the location objects based on the form input, 
+ * call form validations, and render functions.
+ * @param {*} event 
+ */
+function salmonCookieLocationInputFormData(event) {
+    event.preventDefault();
+
+    var locationNameForm = event.target.locationName.value;
+    var minimumCustomersForm = event.target.minimumCustomers.value;
+    var maximumCustomersForm = event.target.maximumCustomers.value;
+    var averageCookieSalesForm = event.target.averageCookiesPerCustomer.value;
+
+    //Instantiate the object
+    var newStore = new SalmonCookieLocationDetails(locationNameForm, minimumCustomersForm, maximumCustomersForm, averageCookieSalesForm);
+
+    //Call form validation functions
+    validateDuplicateLocation(salmonCookieStoreLocations);
+    validateSpecialCharacters(salmonCookieStoreLocations);
+
+    //Call only if error status is N
+    if (errorStatus === "N") {
+        newStore.render();
+        createTable();
+        createSalesFooter();
+        locationDetailsInputForm.reset();
+    }
+}
+
+/**
+ * Create Table for storing the form inputs.
+ */
+function createTable() {
+    var row;
+    for (var i = 0; i < salmonCookieStoreLocations.length; i++) {
+        row = document.createElement('tr');
+        row.innerHTML =
+            '<td>' + salmonCookieStoreLocations[i].location + '</td>' +
+            '<td>' + salmonCookieStoreLocations[i].minimumCustomers + '</td>' +
+            '<td>' + salmonCookieStoreLocations[i].maximumCustomers + '</td>' +
+            '<td>' + salmonCookieStoreLocations[i].averageCookiesPerCustomer + '</td>'
+        console.log("Create Table" + salmonCookieStoreLocations[i].locationName);
+    }
+    locationDetailsTable.appendChild(row);
+}
+
+/**
+ * Validate Duplicate Location in the form.
+ * @param {*} salmonCookieStoreLocations 
+ */
+function validateDuplicateLocation(salmonCookieStoreLocations) {
+    errorStatus = "N"; //reset error status
+    var locationArrayLength = salmonCookieStoreLocations.length;
+    if (locationArrayLength > 1) {
+        try {
+            for (var i = 0; i < locationArrayLength - 1; i++) {
+                if (salmonCookieStoreLocations[locationArrayLength - 1].location === salmonCookieStoreLocations[i].location) {
+                    errorStatus = "Y";
+                    salmonCookieStoreLocations.length = salmonCookieStoreLocations.length - 1; //delete the duplicate from array
+                    throw (salmonCookieStoreLocations[i].location + " is a duplicate location.");
+                }
+            }
+        }
+        catch (e) {
+            alert("Error :" + e);
+        }
+    }
+}
+
+/**
+ * Validate Special characters in the location.
+ * @param {*} salmonCookieStoreLocations 
+ */
+function validateSpecialCharacters(salmonCookieStoreLocations) {
+    var pattern = new RegExp(/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
+    var locationArrayLength = salmonCookieStoreLocations.length - 1;
+    try {
+        if (pattern.test(salmonCookieStoreLocations[locationArrayLength].location)) {
+            errorStatus = "Y";
+            salmonCookieStoreLocations.length = salmonCookieStoreLocations.length - 1; //delete the duplicate from array
+            throw ("Please only use standard alphanumerics");
+        }
+    }
+    catch (e) {
+        alert("Error :" + e);
+    }
+}
 
 /**
  * Create Sales Header Function
@@ -98,9 +188,9 @@ var createSalesHeader = function () {
     var mainLocationDetailsTable = document.getElementById('salmonCookieSalesTable');
     var table = document.createElement('table');
     mainLocationDetailsTable.appendChild(table);
-    table.id = 'table';
+    table.id = 'salestable';
 
-    var insideMainLocationDetailsTable = document.getElementById('table');
+    var insideMainLocationDetailsTable = document.getElementById('salestable');
     var newRow = document.createElement('tr');
     newRow.id = 'heading';
     insideMainLocationDetailsTable.appendChild(newRow);
@@ -130,6 +220,7 @@ var createSalesHeader = function () {
  * Hourly Sales Total function
  */
 var calculateHourlySalesTotal = function () {
+    salmonCookieTotalCount = 0;
     for (var i = 0; i < workingHours.length; i++) {
         //Initialize hourly Totals to 0
         var hourlyTotalSalesPerLocation = 0;
@@ -142,18 +233,23 @@ var calculateHourlySalesTotal = function () {
         columnValue.innerText = hourlyTotalSalesPerLocation;
         footerColumnTotalValue.appendChild(columnValue);
         salmonCookieTotalCount += hourlyTotalSalesPerLocation;
-      
+
         console.log(salmonCookieTotalCount);
     }
 };
 
 /**
- * Create sales footer function
+ * Create sales footer function.
  */
 var createSalesFooter = function () {
-
-    var insideTable = document.getElementById('table');
+    var insideTable = document.getElementById('salestable');
+    let table = document.querySelector('table');
     var rowValue = document.createElement('tr');
+
+    if (salmonCookieStoreLocations.length > 1) {
+        console.log("Delete Hourly Row" + (salmonCookieStoreLocations.length));
+        table.deleteRow(salmonCookieStoreLocations.length);
+    }
     rowValue.id = 'footer';
     insideTable.appendChild(rowValue);
 
@@ -173,11 +269,5 @@ var createSalesFooter = function () {
 // 1. Call the Sales Header
 createSalesHeader();
 
-// 2. Populate the Sales Table
-for (var i = 0; i < salmonCookieStoreLocations.length; i++) {
-    //Append each locations render functions
-    salmonCookieStoreLocations[i].render();
-}
-
-// 3. Populate the Sales Footer
-createSalesFooter();
+// 2. Call the input form data
+locationDetailsInputForm.addEventListener('submit', salmonCookieLocationInputFormData);

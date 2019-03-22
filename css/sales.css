@@ -10,12 +10,13 @@ body {
     background-image: url("../img/backgroundImage_index.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
+    background-attachment: fixed;
 }
 h1 {
     font-family: 'PT Sans', sans-serif;
     font-size: 250%;
     font-weight: bolder;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     text-shadow: rgb(189, 111, 39);
     color: white;
@@ -33,11 +34,14 @@ ul {
 }
 
 p {
+    margin: 30px;
     font-family: 'Karla', sans-serif;
-    font-size: 100%;
-    opacity: 1.0;
-    padding: 30px;
+    font-size: 105%;
+    opacity: 0.5;
+    padding: 10px;
     color: white;
+    width: 1000px;
+    line-height: 1.5;
 }
 
 li {
@@ -65,7 +69,8 @@ h2 {
     font-family: 'Karla', sans-serif;
     border-collapse: collapse;
     clear: both;
-    color: white;
+    color: black;
+    background-color: white;
   }
   
 #locationtable td {
@@ -129,12 +134,113 @@ h2 {
 }
 
 #salmonCookieSalesTable tr:first-child{
-    background-color:white;
-    color: black;
+    color: white;
     padding: 10px;
 }
 
 #salmonCookieSalesTable tr:hover {
+    background-color: white;
+    color: black
+ }
+
+.locationforminput {
+    font-family: 'Karla', sans-serif;
+    margin: 30px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    opacity: 0.5;
+    width:50%;
+  } 
+
+input[type=text], select, textarea {
+    font-family: 'Karla', sans-serif;
+    width: 100%; 
+    padding: 12px;  
+    border: 1px solid rgb(3, 2, 2); 
+    border-radius: 6px; 
+    box-sizing: border-box;
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical
+}
+
+input[type=number], select, textarea {
+    font-family: 'Karla', sans-serif;
+    width: 100%; 
+    padding: 12px;  
+    border: 1px solid rgb(3, 2, 2); 
+    border-radius: 6px; 
+    box-sizing: border-box;
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical
+}
+
+button {
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+.locationforminput h2 {
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 180%;
+    clear: both;
+    font-weight: bold;
+    color: black;
+    padding: 20px;
+}
+
+#locationinputdetailstable {
+    margin: 40px;
+    font-family: 'Karla', sans-serif;
+    border-collapse: collapse;
+    clear: both;
+    color: white;
+    padding: 10px;
+  }
+  
+#locationinputdetailstable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#locationinputdetailstable tr {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#locationinputdetailstable th{
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+  
+#locationinputdetailstable tr:nth-child(even){
+    background-color: black;
+    opacity: 0.5;
+}
+
+#locationinputdetailstable tr:nth-child(odd){
+    background-color: black;
+    opacity: 0.5;
+    padding: 10px;
+}
+
+#locationinputdetailstable tr:first-child{
+    color: white;
+    padding: 10px;
+}
+
+#locationinputdetailstable tr:hover {
     background-color: white;
     color: black
  }
