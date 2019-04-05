@@ -1,63 +1,80 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Dosis|Karla|Lobster|PT+Sans" rel="stylesheet">
+  <head>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bree+Serif|Dosis|Karla|Lobster|PT+Sans"
+      rel="stylesheet"
+    />
     <title>Salmon Cookies | Best Organic cookies in Seattle</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <section>
-            <a href="index.html">
-                <img class="logo" src="img/SalmonLogo_1.png" height="120" width="200">
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="html/products.html">OUR PRODUCTS</a></li>
-                    <li><a href="html/wheretobuy.html">WHERE TO BUY</a></li>
-                    <li><a href="html/about.html">ABOUT US</a></li>
-                    <li><a href="html/contact.html">CONTACT</a></li>
-                    <li><a href="html/sales.html" target="_blank">SALES</a></li>
-                </ul>
-            </nav>
-        </section>
+      <section>
+        <a href="index.html">
+          <img
+            class="logo"
+            src="img/SalmonLogo_1.png"
+            height="120"
+            width="200"
+          />
+        </a>
+        <nav>
+          <ul>
+            <li><a href="html/products.html">OUR PRODUCTS</a></li>
+            <li><a href="html/wheretobuy.html">WHERE TO BUY</a></li>
+            <li><a href="html/about.html">ABOUT US</a></li>
+            <li><a href="html/contact.html">CONTACT</a></li>
+            <li><a href="html/sales.html" target="_blank">SALES</a></li>
+          </ul>
+        </nav>
+      </section>
     </header>
 
+    <animate>
+      <h1>
+        Welcome to the world of great taste!!!
+      </h1>
+      <ul class="sub-banners">
+        <li><img src="img/fish.jpg" /></li>
+        <li><img src="img/chinook.jpg" /></li>
+      </ul>
+      <svg>
+        <defs>
+          <filter id="flyOn">
+            <feTurbulence
+              id="turbulence"
+              baseFrequency="0.02"
+              numOctaves="3"
+              result="noise"
+              seed="3"
+            />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" />
+          </filter>
+        </defs>
+      </svg>
+    </animate>
+
     <main>
-        <img class="hero" src="http://placehold.it/960x450">
-
-        <ul class="sub-banners">
-            <li><img src="http://placehold.it/300x375"></li>
-            <li><img src="http://placehold.it/300x375"></li>
-            <li><img src="http://placehold.it/300x375"></li>
-        </ul>
-
-        <section class="left">
-            <img src="http://placehold.it/480x350">
-        </section>
-        <section class="right">
-            <h2>featured heading</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sapiente illum cumque officia velit
-                nemo maxime quia consequuntur fuga soluta, excepturi repellat labore, perferendis tempore quaerat
-                aliquam. Incidunt, ad reprehenderit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-                sapiente illum cumque officia velit nemo maxime quia consequuntur fuga soluta, excepturi repellat
-                labore, perferendis tempore quaerat aliquam. Incidunt, ad reprehenderit? Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Placeat sapiente illum cumque officia velit nemo maxime quia consequuntur
-                fuga soluta, excepturi repellat labore, perferendis tempore quaerat aliquam. Incidunt, ad
-                reprehenderit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sapiente illum cumque
-                officia velit nemo maxime quia consequuntur fuga soluta, excepturi repellat labore, perferendis tempore
-                quaerat aliquam. Incidunt, ad reprehenderit?</p>
-
-            <button>call to action</button>
-        </section>
+      <section class="left">
+        <img src="img/salmon.jpg" />
+      </section>
+      <section class="right">
+        <p>
+          On the day you want your cookies shipped we will hand make, perfectly
+          bake, carefully package and ship to anywhere in the US and Canada you
+          would like. There are no preservatives or artificial ingredients used,
+          therefore we recommend overnight or second day shipping. You have my
+          personal guarantee your cookies will be fresh & delicious and your
+          guest 100% satisfied or your money back.
+        </p>
+      </section>
     </main>
 
     <div class="footer">
-            &copy;2019, Salmon Cookies
+      &copy;2019, Salmon Cookies
     </div>
-</body>
-
+  </body>
 </html>
